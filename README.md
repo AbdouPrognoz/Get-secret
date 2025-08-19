@@ -1,2 +1,2 @@
 # Get-secret
-/
+This website is a fun secrets generator that fetches random secrets from the "Secrets API" ( a public api ) and displays them with a stylish card interface. Users can instantly get a new secret by clicking a button, which triggers an API request without refreshing the page. The project demonstrates how to use Axios in a Node.js/Express backend to interact with external APIs and how to update the frontend dynamically using JavaScript. It’s a simple example of combining API usage, asynchronous requests . With express we used the classic views and public format with ejs (no partials tho ) .
