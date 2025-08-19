@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Lisper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+
+</head>
+
+<body>
+  <h1>What's your secret?</h1>
+  <div class="card">
+    <p>
+      <%= secret %>
+    </p>
+  </div>
+  <p class="user">
+    <%= user %>
+  </p>
+  <button id="new-secret-btn">Get New Secret</button>
+
+</body>
+<script>
+  document.getElementById("new-secret-btn").onclick = async function () {
+    const response = await fetch("/");
+    const text = await response.text();
+    // Parse the HTML response and update the secret and user
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, "text/html");
+    document.querySelector(".card p").innerHTML = doc.querySelector(".card p").innerHTML;
+    document.querySelector(".user").innerHTML = doc.querySelector(".user").innerHTML;
+  };
+</script>
+</html>
